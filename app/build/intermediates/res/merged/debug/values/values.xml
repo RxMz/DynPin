@@ -270,9 +270,14 @@
     <string name="abc_shareactionprovider_share_with_application">Share with %s</string>
     <string name="abc_toolbar_collapse_description">Collapse</string>
     <string name="action_settings">Settings</string>
+    <string name="admin_explanation">Device Admin helps the user to get special privileges, for eg. to access the DynPins network data. These privileges can only be acquired by accepting these policies.</string>
     <string name="app_name">DynPin</string>
     <string name="appbar_scrolling_view_behavior" translatable="false">android.support.design.widget.AppBarLayout$ScrollingViewBehavior</string>
     <string name="character_counter_pattern" translatable="false">%1$d / %2$d</string>
+    <string name="device_admin">Rishabh is Device Admin</string>
+    <string name="device_admin_description">device admin implementation which shows the usage of DevicePolicyManager class.  This implementation provides you a way to control a device\'s security.</string>
+    <string name="explanation">Simply</string>
+    <string name="hello_world">Hello world!</string>
     <string name="status_bar_notification_info_overflow">999+</string>
     <style name="AlertDialog.AppCompat" parent="Base.AlertDialog.AppCompat"/>
     <style name="AlertDialog.AppCompat.Light" parent="Base.AlertDialog.AppCompat.Light"/>

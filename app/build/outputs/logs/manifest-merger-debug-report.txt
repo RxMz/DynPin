@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /home/rishabh/Desktop/DynPin/app/src/main/AndroidManifest.xml:2:1-23:12
+ADDED from /home/rishabh/Desktop/DynPin/app/src/main/AndroidManifest.xml:2:1-43:12
 	package
 		ADDED from /home/rishabh/Desktop/DynPin/app/src/main/AndroidManifest.xml:3:5-38
 		INJECTED from /home/rishabh/Desktop/DynPin/app/src/main/AndroidManifest.xml
@@ -14,7 +14,7 @@ ADDED from /home/rishabh/Desktop/DynPin/app/src/main/AndroidManifest.xml:2:1-23:
 		INJECTED from /home/rishabh/Desktop/DynPin/app/src/main/AndroidManifest.xml
 		INJECTED from /home/rishabh/Desktop/DynPin/app/src/main/AndroidManifest.xml
 application
-ADDED from /home/rishabh/Desktop/DynPin/app/src/main/AndroidManifest.xml:5:5-21:19
+ADDED from /home/rishabh/Desktop/DynPin/app/src/main/AndroidManifest.xml:5:5-41:19
 MERGED from [com.android.support:appcompat-v7:23.1.1] /home/rishabh/Desktop/DynPin/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/AndroidManifest.xml:22:5-20
 MERGED from [com.android.support:support-v4:23.1.1] /home/rishabh/Desktop/DynPin/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.1.1/AndroidManifest.xml:22:5-20
 MERGED from [com.android.support:design:23.1.1] /home/rishabh/Desktop/DynPin/app/build/intermediates/exploded-aar/com.android.support/design/23.1.1/AndroidManifest.xml:22:5-20
@@ -50,6 +50,52 @@ category#android.intent.category.LAUNCHER
 ADDED from /home/rishabh/Desktop/DynPin/app/src/main/AndroidManifest.xml:18:17-77
 	android:name
 		ADDED from /home/rishabh/Desktop/DynPin/app/src/main/AndroidManifest.xml:18:27-74
+receiver#com.todaysfuture.dynpin.MainActivity$MyDevicePolicyReceiver
+ADDED from /home/rishabh/Desktop/DynPin/app/src/main/AndroidManifest.xml:21:9-39:20
+	android:label
+		ADDED from /home/rishabh/Desktop/DynPin/app/src/main/AndroidManifest.xml:24:13-49
+	android:permission
+		ADDED from /home/rishabh/Desktop/DynPin/app/src/main/AndroidManifest.xml:25:13-70
+	android:description
+		ADDED from /home/rishabh/Desktop/DynPin/app/src/main/AndroidManifest.xml:23:13-67
+	android:name
+		ADDED from /home/rishabh/Desktop/DynPin/app/src/main/AndroidManifest.xml:22:13-64
+meta-data#android.app.device_admin
+ADDED from /home/rishabh/Desktop/DynPin/app/src/main/AndroidManifest.xml:26:13-28:59
+	android:resource
+		ADDED from /home/rishabh/Desktop/DynPin/app/src/main/AndroidManifest.xml:28:17-56
+	android:name
+		ADDED from /home/rishabh/Desktop/DynPin/app/src/main/AndroidManifest.xml:27:17-56
+intent-filter#android.app.action.ACTION_PASSWORD_CHANGED+android.app.action.ACTION_PASSWORD_EXPIRING+android.app.action.ACTION_PASSWORD_FAILED+android.app.action.ACTION_PASSWORD_SUCCEEDED+android.app.action.DEVICE_ADMIN_DISABLED+android.app.action.DEVICE_ADMIN_DISABLE_REQUESTED+android.app.action.DEVICE_ADMIN_ENABLED
+ADDED from /home/rishabh/Desktop/DynPin/app/src/main/AndroidManifest.xml:30:13-38:29
+action#android.app.action.DEVICE_ADMIN_ENABLED
+ADDED from /home/rishabh/Desktop/DynPin/app/src/main/AndroidManifest.xml:31:17-82
+	android:name
+		ADDED from /home/rishabh/Desktop/DynPin/app/src/main/AndroidManifest.xml:31:25-79
+action#android.app.action.DEVICE_ADMIN_DISABLE_REQUESTED
+ADDED from /home/rishabh/Desktop/DynPin/app/src/main/AndroidManifest.xml:32:17-92
+	android:name
+		ADDED from /home/rishabh/Desktop/DynPin/app/src/main/AndroidManifest.xml:32:25-89
+action#android.app.action.DEVICE_ADMIN_DISABLED
+ADDED from /home/rishabh/Desktop/DynPin/app/src/main/AndroidManifest.xml:33:17-83
+	android:name
+		ADDED from /home/rishabh/Desktop/DynPin/app/src/main/AndroidManifest.xml:33:25-80
+action#android.app.action.ACTION_PASSWORD_CHANGED
+ADDED from /home/rishabh/Desktop/DynPin/app/src/main/AndroidManifest.xml:34:17-85
+	android:name
+		ADDED from /home/rishabh/Desktop/DynPin/app/src/main/AndroidManifest.xml:34:25-82
+action#android.app.action.ACTION_PASSWORD_EXPIRING
+ADDED from /home/rishabh/Desktop/DynPin/app/src/main/AndroidManifest.xml:35:17-86
+	android:name
+		ADDED from /home/rishabh/Desktop/DynPin/app/src/main/AndroidManifest.xml:35:25-83
+action#android.app.action.ACTION_PASSWORD_FAILED
+ADDED from /home/rishabh/Desktop/DynPin/app/src/main/AndroidManifest.xml:36:17-84
+	android:name
+		ADDED from /home/rishabh/Desktop/DynPin/app/src/main/AndroidManifest.xml:36:25-81
+action#android.app.action.ACTION_PASSWORD_SUCCEEDED
+ADDED from /home/rishabh/Desktop/DynPin/app/src/main/AndroidManifest.xml:37:17-87
+	android:name
+		ADDED from /home/rishabh/Desktop/DynPin/app/src/main/AndroidManifest.xml:37:25-84
 uses-sdk
 INJECTED from /home/rishabh/Desktop/DynPin/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 MERGED from [com.android.support:appcompat-v7:23.1.1] /home/rishabh/Desktop/DynPin/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/AndroidManifest.xml:20:5-43

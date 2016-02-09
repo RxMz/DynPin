@@ -28,4 +28,14 @@
         android:text="Refresh"
         android:layout_below="@id/Tv2"
         android:id="@+id/btn1"/>
+
+    <CheckBox
+        android:id="@+id/checkBox1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btn1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:text="Enable Device Admin"
+        android:textStyle="bold" />
 </RelativeLayout>
