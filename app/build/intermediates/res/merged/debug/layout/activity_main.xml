@@ -13,29 +13,41 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/TV"
+        android:id="@+id/tvTIME"
         android:text="nn"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/Tv2"
-        android:layout_below="@id/TV"
+        android:id="@+id/tvPIN"
+        android:layout_below="@id/tvTIME"
         android:text="nn"
         />
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Refresh"
-        android:layout_below="@id/Tv2"
+        android:layout_below="@id/tvPIN"
         android:id="@+id/btn1"/>
-
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btn1"
+        android:id="@+id/tvBETA"
+        android:text="@string/Instructions"/>
     <CheckBox
         android:id="@+id/checkBox1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/btn1"
+        android:layout_below="@+id/tvBETA"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="15dp"
         android:text="Enable Device Admin"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:checked="false"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnActivate"
+        android:layout_below="@id/checkBox1"
+        android:text="Activate"/>
 </RelativeLayout>

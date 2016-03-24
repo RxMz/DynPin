@@ -44,6 +44,13 @@
                 <action android:name="android.app.action.ACTION_PASSWORD_SUCCEEDED" />
             </intent-filter>
         </receiver>
+
+        <service android:name="com.todaysfuture.dynpin.MyService" />
+
+        <receiver android:name="com.todaysfuture.dynpin.MyService$MyReceiver" />
+        <receiver android:name="com.todaysfuture.dynpin.MyABReceiver" />
+
+        <service android:name="com.todaysfuture.dynpin.MyABService" />
     </application>
 
 </manifest>

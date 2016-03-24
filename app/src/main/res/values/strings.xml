@@ -5,5 +5,6 @@
     <string name="device_admin">Rishabh is Device Admin</string>
     <string name="device_admin_description">device admin implementation which shows the usage of DevicePolicyManager class.  This implementation provides you a way to control a device\'s security.</string>
     <string name="explanation">Simply</string>
+    <string name="Instructions">By using this application you agree to our TOS. You can check them at www.todaysfuture.in.</string>
     <string name="admin_explanation">Device Admin helps the user to get special privileges, for eg. to access the DynPins network data. These privileges can only be acquired by accepting these policies.</string>
 </resources>

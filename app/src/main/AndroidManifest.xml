@@ -14,7 +14,6 @@
             android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -37,7 +36,11 @@
                 <action android:name="android.app.action.ACTION_PASSWORD_SUCCEEDED" />
             </intent-filter>
         </receiver>
-
+        <service android:name=".MyService"/>
+        <receiver android:name=".MyService$MyReceiver"/>
+        <receiver android:name="com.todaysfuture.dynpin.MyABReceiver"/>
+        <service android:name=".MyABService"/>
     </application>
+
 
 </manifest>

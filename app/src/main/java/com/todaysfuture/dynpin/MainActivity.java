@@ -1,16 +1,17 @@
 package com.todaysfuture.dynpin;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.app.admin.DeviceAdminReceiver;
+import android.app.admin.DevicePolicyManager;
 import android.content.ComponentName;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.app.admin.DevicePolicyManager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -23,15 +24,13 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 public class MainActivity extends AppCompatActivity {
+
     private final static String LOG_TAG="DevicePolicyAdmin";
-    DevicePolicyManager minochaDevicePolicyManager;
-    ComponentName minochaDevicePolicyAdmin;
+    public static DevicePolicyManager minochaDevicePolicyManager;
+    public static ComponentName minochaDevicePolicyAdmin;
     private CheckBox minochaAdminEnabled;
     protected static final int REQUEST_ENABLE=1;
     protected static final int SET_PASSWORD=2;
-
-
-
     Calendar c = Calendar.getInstance();
     int hour=c.get(Calendar.HOUR_OF_DAY);
     int minute=c.get(Calendar.MINUTE);
@@ -39,27 +38,68 @@ public class MainActivity extends AppCompatActivity {
     SimpleDateFormat sdf = new SimpleDateFormat("hh:mm");
     String date = sdf.format(calendar.getTime());
     String str=date.charAt(0)+""+date.charAt(1)+""+date.charAt(3)+""+date.charAt(4);
+    private AlarmManager alarmMgr;
+    private PendingIntent alarmIntent;
+    private TextView TimeText;
+    private TextView PinText;
+    private Button RefreshButton;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Button activater=(Button)findViewById(R.id.btnActivate);
+        activater.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent2 = new Intent(MainActivity.this,MyABService.class);
+                PendingIntent pintent = PendingIntent.getService(MainActivity.this, 0, intent2, 0);
+                AlarmManager alarm_manager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+                alarm_manager.setRepeating(AlarmManager.RTC, c.getTimeInMillis(), 60*1000,  pintent);
+            }
+        });
+        Button deactivator=(Button)findViewById(R.id.btnDeactivate);
+        deactivator.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this,
+                        "Deactivated the changer! The pin is now 9999.", Toast.LENGTH_LONG).show();
+                Intent intent2 = new Intent(MainActivity.this,MyABService.class);
+                PendingIntent pintent = PendingIntent.getService(MainActivity.this, 0, intent2, 0);
+                AlarmManager alarm_manager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+                alarm_manager.cancel(pintent);
+                minochaDevicePolicyManager.resetPassword("9999",0);
+            }
+        });
+
         minochaDevicePolicyManager=(DevicePolicyManager)getSystemService(Context.DEVICE_POLICY_SERVICE);
         minochaDevicePolicyAdmin=new ComponentName(this,MyDevicePolicyReceiver.class);
         minochaAdminEnabled=(CheckBox)findViewById(R.id.checkBox1);
-        final Button refresh=(Button)findViewById(R.id.btn1);
+        RefreshButton=(Button)findViewById(R.id.btn1);
+        PinText=(TextView)findViewById(R.id.tvPIN);
+        TimeText=(TextView)findViewById(R.id.tvTIME);
         displayer();
-         refresh.setOnClickListener(new View.OnClickListener() {
+         RefreshButton.setOnClickListener(new View.OnClickListener() {
              @Override
              public void onClick(View v) {
-                 TextView Tv=(TextView)findViewById(R.id.TV);
-                 TextView Tv2=(TextView)findViewById(R.id.Tv2);
-                 String date = sdf.format(calendar.getTime());
-                 Tv.setText("The current time is "+date);
-                 String str=date.charAt(0)+""+date.charAt(1)+""+date.charAt(3)+""+date.charAt(4);
-                 Tv2.setText("So the password will be " + str);
+                 displayer();
              }
          });
+
+    }
+    public void displayer() {
+        Calendar c = Calendar.getInstance();
+        hour=c.get(Calendar.HOUR_OF_DAY);
+        minute=c.get(Calendar.MINUTE);
+        Calendar calendar = new GregorianCalendar(1990, 1, 1, hour, minute);
+        SimpleDateFormat sdf = new SimpleDateFormat("hh:mm");
+        date = sdf.format(calendar.getTime());
+        TimeText.setText("The current time is "+date);
+        str=date.charAt(0)+""+date.charAt(1)+""+date.charAt(3)+""+date.charAt(4);
+        PinText.setText("So the password will be " + str);
     }
     @Override
     protected void onResume(){
@@ -76,30 +116,37 @@ public class MainActivity extends AppCompatActivity {
                     Intent intent = new Intent(DevicePolicyManager.ACTION_ADD_DEVICE_ADMIN);
                     intent.putExtra(DevicePolicyManager.EXTRA_DEVICE_ADMIN, minochaDevicePolicyAdmin);
                     startActivityForResult(intent, REQUEST_ENABLE);
+
                 } else {
                     minochaDevicePolicyManager.removeActiveAdmin(minochaDevicePolicyAdmin);
+
                 }
             }
         });
     }
-    protected void onActivityResult(int requestCode,int resultCode, Intent data){
+      //Here is where the password is set
+    protected void onActivityResult(int requestCode,int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if(resultCode==RESULT_OK){
             switch (requestCode){
                 case REQUEST_ENABLE:
-                    Log.v(LOG_TAG, "Enabling policies...");
-                    minochaDevicePolicyManager.resetPassword(str,0);
+                    Log.v(LOG_TAG, "Enabling policies");
                     break;
             }
         }
     }
     private boolean isMyDevicePolicyRecieverActive(){
-        return  minochaDevicePolicyManager.isAdminActive(minochaDevicePolicyAdmin);
+        return minochaDevicePolicyManager.isAdminActive(minochaDevicePolicyAdmin);
     }
-    public static class MyDevicePolicyReceiver extends DeviceAdminReceiver{
+
+
+    //Another class starts here ------------------------------------------------------------
+//0922
+
+    public static class MyDevicePolicyReceiver extends DeviceAdminReceiver {
         @Override
         public void onDisabled(Context context,Intent intent){
-            Toast.makeText(context,"DynPin is now an admin",Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "DynPin is not an admin anymore", Toast.LENGTH_SHORT).show();
         }
 
         @Override
@@ -110,7 +157,7 @@ public class MainActivity extends AppCompatActivity {
 
         public void onPasswordChanged(Context context, Intent intent) {
             Toast.makeText(context, "Device password is now changed",
-                    Toast.LENGTH_SHORT).show();
+                    Toast.LENGTH_LONG).show();
             DevicePolicyManager localDPM = (DevicePolicyManager) context
                     .getSystemService(Context.DEVICE_POLICY_SERVICE);
             ComponentName localComponent = new ComponentName(context,
@@ -130,14 +177,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    private void displayer() {
-        TextView Tv=(TextView)findViewById(R.id.TV);
-        TextView Tv2=(TextView)findViewById(R.id.Tv2);
-        String date = sdf.format(calendar.getTime());
-        Tv.setText("The current time is "+date);
-        String str=date.charAt(0)+""+date.charAt(1)+""+date.charAt(3)+""+date.charAt(4);
-        Tv2.setText("So the password will be " + str);
-    }
+
 
 
 
@@ -162,5 +202,7 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+
 
 }
