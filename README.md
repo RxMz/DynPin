@@ -3,7 +3,9 @@ DynPin
 
 An android app which changes the unlock password every minute.
 
-Play Store Link :- https://play.google.com/store/apps/details?id=com.todaysfuture.dynpin
+``Play Store Link :- https://play.google.com/store/apps/details?id=com.todaysfuture.dynpin``
+
+Removed from playstore - Due to many reasons, I have decided to remove it from the playstore since my board (Class 12) examinations were approaching and reading the reviews and working on it became to distracting.
 
 Youtube Demo Link :- https://www.youtube.com/watch?v=l1JhVGyUsvU
 
