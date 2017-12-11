@@ -5,8 +5,9 @@ An android app which changes the unlock password every minute.
 
 ``Play Store Link :- https://play.google.com/store/apps/details?id=com.todaysfuture.dynpin``
 
-Removed from playstore - Due to many reasons, I have decided to remove it from the playstore since my board (Class 12) examinations were approaching and reading the reviews and working on it became to distracting.
+Removed from playstore - Due to many reasons, I have decided to remove it from the playstore since my board (Class 12) examinations were approaching and reading the reviews and working on it became too distracting.
 
+After several requests, I will be working on this again.
 Youtube Demo Link :- https://www.youtube.com/watch?v=l1JhVGyUsvU
 
 ## Version Information
