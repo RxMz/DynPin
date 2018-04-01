@@ -3,7 +3,7 @@ DynPin
 
 An android app which changes the unlock password every minute.
 
-``Play Store Link :- https://play.google.com/store/apps/details?id=com.todaysfuture.dynpin``
+~~``Play Store Link :- https://play.google.com/store/apps/details?id=com.todaysfuture.dynpin``~~
 
 Removed from playstore - Due to many reasons, I have decided to remove it from the playstore since my board (Class 12) examinations were approaching and reading the reviews and working on it became too distracting.
 
@@ -20,14 +20,16 @@ Youtube Demo Link :- https://www.youtube.com/watch?v=l1JhVGyUsvU
 
 **Update Status:** Current Repo not updated. _Updated version available._
 
+**Latest version developed:** 1.7
+
 
 
 Issues
 ---------------------------
 
-__1.__ Service to start every minute does not work so it starts every second instead.
+__1.__ ~~Service to start every minute does not work so it starts every second instead.~~ FIXED IN V1.7
 
-__2.__ Does not work on some devices.
+__2.__ ~~Does not work on some devices. ~~~ UPDATED SUPPORT FOR 5241 MORE DEVICES
 
 __3.__ Have to remove the pin once user deactivates the app
 
