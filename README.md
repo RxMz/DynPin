@@ -22,6 +22,8 @@ Youtube Demo Link :- https://www.youtube.com/watch?v=l1JhVGyUsvU
 
 **Latest version developed:** 1.7
 
+**PRODUCTION AS STOPPED UNFORTUNATELY DUE TO TECHNOLOGICAL ADVANCES, EVERY PHONE HAS A FINGERPRINT SCANNER. NO USE OF APPLICATION**
+
 
 
 Issues
